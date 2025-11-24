@@ -57,8 +57,15 @@ public class TowersVariations {
      * @param to   destination peg label
      */
     public static void solveVariation(int n, int from, int mid, int to) {
+        if(n==0) return;
+        solveVariation(n-1, from, to, mid);
+        count ++;
+        System.out.println("move " + n + " from " + from + " to " + mid);
+        solveVariation(n-1, mid, from, to);
+        System.out.println("move " + n + " from " + mid + " to " + to);
+        count ++;
+        solveVariation(n-1, from, to, mid);
         // TODO 1: Base case — if n == 0 → return.
-
         // TODO 2: Recursive case —
         //  a) Move n-1 disks from 'from' to 'mid' (using 'to' as helper)
         //  b) Move disk n from 'from' to 'to' — BUT must go through 'mid':

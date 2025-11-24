@@ -57,6 +57,14 @@ public class TowersExercise21 {
         //   a) solve(n-1, from, to, aux)
         //   b) increment count for moving disk n
         //   c) solve(n-1, aux, from, to)
+        if (n == 0) {
+            System.out.println("Empty");
+        }else{
+            solve(n-1, from, to, aux);
+            count++;
+            solve(n-1, aux, from, to);
+        }
+        System.out.println(count);
     }
 
     public static void main(String[] args) {
